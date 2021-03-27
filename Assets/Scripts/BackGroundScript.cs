@@ -17,7 +17,6 @@ public class BackGroundScript : MonoBehaviour
     GameObject cameraObj;
     public GameObject groundPrefab;
     Camera _camera;
-
     public int mathSizeX = 0;
     public int mathSizeY = 0;
 
@@ -61,10 +60,11 @@ public class BackGroundScript : MonoBehaviour
                 _ypos = _ySpan * i;
                 for (var j = 0; j < math[i].Count; j++)
                 {
+                    float chosei = Random.Range(0.0f, 2.0f);
                     float _calcX = (mySpriteRndr.bounds.min.x + (_xSpan * j));
                     float _calcY = (mySpriteRndr.bounds.min.y + (_ypos));
                     float _xPos = Random.Range(_calcX, _calcX);
-                    float _yPos = Random.Range(_calcY, _calcY);
+                    float _yPos = Random.Range(_calcY - chosei, _calcY);
                     math[i][j].SetX(_xPos);
                     math[i][j].SetY(_yPos);
                 }
