@@ -16,6 +16,8 @@ public class GManager : MonoBehaviour
 
     private AudioSource audioSource = null;
     private float maxPos = 0f;
+    // ゲームモード
+    private string mode = "easy";
 
     private void Awake()
     {
@@ -96,4 +98,13 @@ public class GManager : MonoBehaviour
     {
         return maxPos;
     }
+
+    /// <summary>
+    /// 現在のゲームモードを返す
+    /// </summary>
+    public string GetMode()
+    {
+        return mode;
+    }
+
 }

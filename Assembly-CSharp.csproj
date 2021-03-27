@@ -37,11 +37,13 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\BackGroundScript.cs" />
+     <Compile Include="Assets\Scripts\Beans\GroundPosBean.cs" />
      <Compile Include="Assets\Scripts\ContinuePoint.cs" />
      <Compile Include="Assets\Scripts\FadeImage.cs" />
      <Compile Include="Assets\Scripts\GManager.cs" />
      <Compile Include="Assets\Scripts\GameOverCtrl.cs" />
      <Compile Include="Assets\Scripts\GroundCheck.cs" />
+     <Compile Include="Assets\Scripts\GroundDelete.cs" />
      <Compile Include="Assets\Scripts\HeartCtrl.cs" />
      <Compile Include="Assets\Scripts\MoveObject.cs" />
      <Compile Include="Assets\Scripts\NewBehaviourScript.cs" />

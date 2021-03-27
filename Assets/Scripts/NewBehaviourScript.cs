@@ -56,17 +56,17 @@ public class NewBehaviourScript : MonoBehaviour
                 if (child.tag == groundTag)
                 {
                     SpriteRenderer srender = child.GetComponent<SpriteRenderer>();
-                    if(srender.isVisible)
-                    {
-                        // 表示されている場合の処理
-                        Debug.Log("s.name" + srender.name + "画面に表示されてるよ");
-                    }
-                    else
-                    {
-                        // 表示されていない場合の処理
-                        Debug.Log("s.name" + srender.name + "画面から消えたよ");
-                         Destroy(child);
-                    }
+                    // if(srender.isVisible)
+                    // {
+                    //     // 表示されている場合の処理
+                    //     Debug.Log("s.name" + srender.name + "画面に表示されてるよ");
+                    // }
+                    // else
+                    // {
+                    //     // 表示されていない場合の処理
+                    //     Debug.Log("s.name" + srender.name + "画面から消えたよ");
+                    //    // Destroy(child);
+                    // }
                 }
             } catch (MissingReferenceException e) {
                 Debug.Log("catch:" + e.ToString());
