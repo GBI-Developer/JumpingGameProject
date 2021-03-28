@@ -134,6 +134,18 @@ public class Player : MonoBehaviour
             }
             rb.velocity = new Vector2(0, -gravity);
         }
+
+        
+        // 背景スクリプトから画像のサイズを取得する
+        // プレイヤーを画面外へ出ると反対側から出るようにする
+        if (transform.position.x > GManager.instance.getBkMaxSizeX())
+        {
+            transform.position = new Vector3(GManager.instance.getBkMinSizeX(), transform.position.y, 0);
+        }
+        else if (transform.position.x < GManager.instance.getBkMinSizeX())
+        {
+            transform.position = new Vector3(GManager.instance.getBkMaxSizeX(), transform.position.y, 0);
+        }
     }
 
     /// <summary>

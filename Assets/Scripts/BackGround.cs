@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Assets.Scripts.Beans;
 
-public class BackGroundScript : MonoBehaviour
+public class BackGround : MonoBehaviour
 {
     // 背景の枚数
     int spriteCount = 3;
@@ -40,7 +40,9 @@ public class BackGroundScript : MonoBehaviour
         // 座標変換
         Vector3 myViewport = _camera.WorldToViewportPoint(bgTfm.position);
         Vector3 localPos   = bgTfm.localPosition;
-        // //Debug.Log("myViewport:" + myViewport);
+        GManager.instance.setBkMaxSizeX(mySpriteRndr.bounds.max.x);
+        GManager.instance.setBkMinSizeX(mySpriteRndr.bounds.min.x);
+
         // //Debug.Log("leftOffset:" + leftOffset);
         // //Debug.Log("bgTfm.position:" + bgTfm.position);
         // 背景の回り込み(カメラがy軸プラス方向に移動時)
@@ -145,4 +147,5 @@ public class BackGroundScript : MonoBehaviour
         }
         return mathSize;
     }
+
 }

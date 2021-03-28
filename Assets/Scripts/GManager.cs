@@ -19,6 +19,11 @@ public class GManager : MonoBehaviour
     // ゲームモード
     private string mode = "easy";
 
+    // TODO:以下プレイヤースクリプトで参照している。
+    // シングルトンのスクリプトでわざわざ設定する必要があるか？
+    private float bkMaxSizeX = 0.0f;
+    private float bkMinSizeX = 0.0f;
+
     private void Awake()
     {
         if (instance == null)
@@ -107,4 +112,33 @@ public class GManager : MonoBehaviour
         return mode;
     }
 
+    /// <summary>
+    /// 現在の背景画像.bounds.max.xをセットする
+    /// </summary>
+    public void setBkMaxSizeX(float size)
+    {
+        this.bkMaxSizeX = size;
+    }
+    /// <summary>
+    /// 現在の背景画像.bounds.max.xを返す
+    /// </summary>
+    public float getBkMaxSizeX()
+    {
+        return this.bkMaxSizeX;
+    }
+
+    /// <summary>
+    /// 現在の背景画像.bounds.min.xをセットする
+    /// </summary>
+    public void setBkMinSizeX(float size)
+    {
+        this.bkMinSizeX = size;
+    }
+    /// <summary>
+    /// 現在の背景画像.bounds.min.xを返す
+    /// </summary>
+    public float getBkMinSizeX()
+    {
+        return this.bkMinSizeX;
+    }
 }

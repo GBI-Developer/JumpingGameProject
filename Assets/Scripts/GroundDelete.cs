@@ -19,7 +19,7 @@ public class GroundDelete : MonoBehaviour
     {
         if (collision.tag == groundTag || collision.tag == StartGroundTag)
         {
-            Debug.Log("collision.name::" + collision.name);
+           // Debug.Log("collision.name::" + collision.name);
             Destroy(collision.gameObject);
         }
     }
