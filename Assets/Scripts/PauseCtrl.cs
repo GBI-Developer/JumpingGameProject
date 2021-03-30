@@ -37,6 +37,7 @@ public class PauseCtrl : MonoBehaviour
         {
             GManager.instance.PlaySE(buttonSE);
             Debug.Log("PauseButton!");
+            Time.timeScale = 0;
             cg.alpha = 1f;
             cg.blocksRaycasts = true;
             //ShowWithFade();
@@ -46,6 +47,7 @@ public class PauseCtrl : MonoBehaviour
         {
             GManager.instance.PlaySE(buttonSE);
             Debug.Log("UnPauseButton!");
+            Time.timeScale = 1;
             cg.alpha = 0f;
             cg.blocksRaycasts = false;
             pausePush = false;
@@ -60,6 +62,7 @@ public class PauseCtrl : MonoBehaviour
         {
             GManager.instance.PlaySE(buttonSE);
             Debug.Log("ContinueButton!");
+            Time.timeScale = 1;
             cg.alpha = 0f;
             cg.blocksRaycasts = false;
             pausePush = false;
@@ -67,7 +70,7 @@ public class PauseCtrl : MonoBehaviour
 
     }
 
-    //続行ボタンを押されたら呼ばれる
+    //終了ボタンを押されたら呼ばれる
     public void EndButton()
     {
         Debug.Log("end Start!");
@@ -75,6 +78,7 @@ public class PauseCtrl : MonoBehaviour
         {
             GManager.instance.PlaySE(buttonSE);
             Debug.Log("EndButton!");
+            Time.timeScale = 1;
             SceneManager.LoadScene("Title"); //タイトル画面へ
 
         }
