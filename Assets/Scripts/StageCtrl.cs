@@ -31,7 +31,7 @@ public class StageCtrl : MonoBehaviour
     public GameOverCtrl goc;
     public GameObject[] grounds;
 
-    // Start is called before the first frame update
+    // Start is called befor the first frame update
     void Start()
     {
         // アタッチされているか
@@ -68,12 +68,14 @@ public class StageCtrl : MonoBehaviour
             {
                 MaxPosObj.transform.position = new Vector3(transform.position
                     .x, playerObj.transform.position.y, transform.position.z);
-                GManager.instance.score = (int)MaxPosObj.transform.position.y;
-                // if (_isFirstStart)
-                // {
-                //     GManager.instance.score = 0;
-                //     _isFirstStart = false;
-                // }
+
+                int _addScore = ((int)MaxPosObj.transform.position.y * 30)
+                     - GManager.instance.score;
+                if (_addScore > 0.0f)
+                {
+                    // スコアを非同期で加算する
+                    StartCoroutine(ScoreAnimation(_addScore, 0.5f));
+                }
             }
         }
 
@@ -209,4 +211,30 @@ public class StageCtrl : MonoBehaviour
     {
 
     }
+
+    /// /// <summary>
+    /// スコアをアニメーションさせる
+    /// </summary>
+    IEnumerator ScoreAnimation(int addScore, float time)
+    {
+        float befor = GManager.instance.score;
+        float after = befor + addScore;
+        float score = MaxPosObj.transform.position.y;
+        //0fを経過時間にする
+        float elapsedTime = 0.0f;
+        //timeが０になるまでループさせる
+        while (elapsedTime < time)
+        {
+            float rate = elapsedTime / time;
+            // スコアの更新
+            GManager.instance.score = int.Parse((befor + (after - befor) * rate).ToString("f0"));
+            Debug.Log((befor + (after - befor) * rate).ToString("f0"));
+            elapsedTime += Time.deltaTime;
+            // 0.01秒待つ
+            yield return new WaitForSeconds(0.01f);
+        }
+        // 最終的なスコアをセット
+        GManager.instance.score = (int)after;
+    }
+    
 }
