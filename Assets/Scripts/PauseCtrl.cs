@@ -54,7 +54,9 @@ public class PauseCtrl : MonoBehaviour
         }
     }
 
-    //続行ボタンを押されたら呼ばれる
+    /// <summary>
+    /// 続けるボタン押下時
+    /// </summary>
     public void ContinueButton()
     {
         Debug.Log("continue Start!");
@@ -70,7 +72,9 @@ public class PauseCtrl : MonoBehaviour
 
     }
 
-    //終了ボタンを押されたら呼ばれる
+    /// <summary>
+    /// 終了ボタン押下時
+    /// </summary>
     public void EndButton()
     {
         Debug.Log("end Start!");
@@ -78,6 +82,11 @@ public class PauseCtrl : MonoBehaviour
         {
             GManager.instance.PlaySE(buttonSE);
             Debug.Log("EndButton!");
+            // TODO:ここでユーザーのスコアをローカル
+            // OR サーバーに保存する？
+
+            // ゲームスコア等リセットする
+            GManager.instance.RetryGame();
             Time.timeScale = 1;
             SceneManager.LoadScene("Title"); //タイトル画面へ
 

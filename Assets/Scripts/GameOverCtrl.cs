@@ -44,10 +44,13 @@ public class GameOverCtrl : MonoBehaviour
     {
             Debug.Log("GameOver!");
             cg.alpha = 1f;
+            Time.timeScale = 0;
             cg.blocksRaycasts = true;
     }
 
-    //続行ボタンを押されたら呼ばれる
+    /// <summary>
+    /// 続けるボタン押下時
+    /// </summary>
     public void ContinueButton()
     {
         Debug.Log("continue Start!");
@@ -55,13 +58,22 @@ public class GameOverCtrl : MonoBehaviour
         cg.alpha = 0f;
         cg.blocksRaycasts = false;
         // GManager.instance.
+        Time.timeScale = 1;
         Retry();
     }
 
-    //続行ボタンを押されたら呼ばれる
+    /// <summary>
+    /// 終了ボタン押下時
+    /// </summary>
     public void EndButton()
     {
         Debug.Log("end Start!");
+        // TODO:ここでユーザーのスコアをローカル
+        // OR サーバーに保存する？
+
+        // ゲームスコア等リセットする
+        GManager.instance.RetryGame();
+        Time.timeScale = 1;
         SceneManager.LoadScene("Title"); //タイトル画面へ
     }
 
