@@ -228,7 +228,6 @@ public class StageCtrl : MonoBehaviour
             float rate = elapsedTime / time;
             // スコアの更新
             GManager.instance.score = int.Parse((befor + (after - befor) * rate).ToString("f0"));
-            Debug.Log((befor + (after - befor) * rate).ToString("f0"));
             elapsedTime += Time.deltaTime;
             // 0.01秒待つ
             yield return new WaitForSeconds(0.01f);
